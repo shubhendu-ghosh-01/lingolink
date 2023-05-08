@@ -1,0 +1,63 @@
+/* Style for the home page */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+  }
+  
+  h1, h2 {
+    color: #333;
+    margin: 0;
+    padding: 0;
+  }
+  
+  form {
+    margin: 20px 0;
+  }
+  
+  label {
+    display: block;
+    margin-bottom: 5px;
+  }
+  
+  select {
+    width: 200px;
+    height: 30px;
+    font-size: 16px;
+  }
+  
+  textarea {
+    width: 500px;
+    height: 100px;
+    font-size: 16px;
+    resize: none;
+  }
+  
+  input[type="submit"] {
+    width: 100px;
+    height: 30px;
+    font-size: 16px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+  }
+  
+  /* Style for the translation page */
+  .translation {
+    margin-top: 20px;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: #f7f7f7;
+  }
+  
+  .translation h2 {
+    margin-top: 0;
+  }
+  
+  .translation p {
+    margin-bottom: 0;
+  }
+  
+  

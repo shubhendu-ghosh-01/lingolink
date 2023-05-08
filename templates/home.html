@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Language Translation</title>
+  </head>
+  <body>
+    <h1>Language Translation</h1>
+    <form method="POST">
+      <label for="from_lang">From Language:</label>
+      <select name="from_lang" id="from_lang">
+        <option value="en">English</option>
+        <option value="es">Spanish</option>
+        <option value="fr">French</option>
+      </select>
+      <br>
+      <label for="to_lang">To Language:</label>
+      <select name="to_lang" id="to_lang">
+        <option value="en">English</option>
+        <option value="es">Spanish</option>
+        <option value="fr">French</option>
+      </select>
+      <br>
+      <label for="text">Text:</label>
+      <textarea name="text" id="text" rows="4" cols="50"></textarea>
+      <br>
+      <input type="submit" value="Translate">
+    </form>
+    {% if translation %}
+      <h2>Translation:</h2>
+      <p>{{ translation }}</p>
+    {% endif %}
+  </body>
+</html>
