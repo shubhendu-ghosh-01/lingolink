@@ -1,0 +1,7 @@
+neon-tts-plugin-coqui==0.6.0
+torch
+git+https://github.com/huggingface/transformers
+gradio
+flask
+requests
+transformers
