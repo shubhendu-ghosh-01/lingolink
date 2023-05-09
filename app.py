@@ -12,9 +12,9 @@ def home():
         tgt_lang = request.form['tgt_lang']
         text = request.form['text']
         translation = translate(src_lang, tgt_lang, text)
-        return render_template('home.html', translation=translation)
+        return render_template('index.html', translation=translation)
     else:
-        return render_template('home.html')
+        return render_template('index.html')
     
 
 tokenizer = AutoTokenizer.from_pretrained("facebook/nllb-200-distilled-600M")
