@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>My App</title>
+  <link rel="stylesheet" type="text/css" href="static/style.css">
+  <script>
+    function Translate() {
+      var src_lang = document.getElementById('src_lang').value;
+      var tgt_lang = document.getElementById('tgt_lang').value;
+      var text = document.getElementById('text').value;
+      var url = '/translate?src_lang=' + src_lang + '&tgt_lang=' + tgt_lang + '&text=' + text;
+      fetch(url)
+        .then(response => response.text())
+        .then(data => document.getElementById('result').value = data)
+        .catch(error => console.log(error));
+    }
+  </script>
+</head>
+<body>
+  <div class="app_name">
+    <h1>LingoLink</h1>
+  </div>
+  <form>
+    <label for="from_lang" class="direction_from">From:</label>
+    <div class="select-container">
+      <select id="src_lang" name="src_lang">
+        <option value="asm_Beng">Assamese</option>
+        <option value="ben_Beng">Bengali</option>
+        <option value="zho_Hans">Chinese</option>
+        <option value="ces_Latn">Czech</option>
+        <option value="dan_Latn">Danish</option>
+        <option value="eng_Latn">English</option>
+        <option value="deu_Latn">German</option>
+        <option value="ell_Grek">Greek</option>
+        <option value="fin_Latn">Finnish</option>
+        <option value="fra_Latn">French</option>
+        <option value="guj_Gujr">Gujarati</option>
+        <option value="hin_Deva">Hindi</option>
+        <option value="jpn_Jpan">Japanese</option>
+        <option value="kan_Knda">Kannada</option>
+        <option value="kor_Hang">Korean</option>
+        <option value="mai_Deva">Maithili</option>
+        <option value="mal_Mlym">Malayalam</option>
+        <option value="ory_Orya">Odia</option>
+        <option value="por_Latn">Portuguese</option>
+        <option value="rus_Cyrl">Russian</option>
+        <option value="san_Deva">Sanskrit</option>
+        <option value="tam_Taml">Tamil</option>
+        <option value="tel_Telu">Telugu</option>
+        <option value="urd_Arab">Urdu</option>
+      </select>
+    </div>
+    <label for="tgt_lang" class="direction_to">To:</label>
+    <div class="select-container">
+      <select id="tgt_lang" name="tgt_lang">
+        <option value="asm_Beng">Assamese</option>
+        <option value="ben_Beng">Bengali</option>
+        <option value="zho_Hans">Chinese</option>
+        <option value="ces_Latn">Czech</option>
+        <option value="dan_Latn">Danish</option>
+        <option value="eng_Latn">English</option>
+        <option value="deu_Latn">German</option>
+        <option value="ell_Grek">Greek</option>
+        <option value="fin_Latn">Finnish</option>
+        <option value="fra_Latn">French</option>
+        <option value="guj_Gujr">Gujarati</option>
+        <option value="hin_Deva">Hindi</option>
+        <option value="jpn_Jpan">Japanese</option>
+        <option value="kan_Knda">Kannada</option>
+        <option value="kor_Hang">Korean</option>
+        <option value="mai_Deva">Maithili</option>
+        <option value="mal_Mlym">Malayalam</option>
+        <option value="ory_Orya">Odia</option>
+        <option value="por_Latn">Portuguese</option>
+        <option value="rus_Cyrl">Russian</option>
+        <option value="san_Deva">Sanskrit</option>
+        <option value="tam_Taml">Tamil</option>
+        <option value="tel_Telu">Telugu</option>
+        <option value="urd_Arab">Urdu</option>
+      </select>
+    </div>
+  </form>
+
+  <div class="input_container">
+    <div class="label">
+      <label for="text">Enter text:</label>
+    </div>
+    <div class="input_box">
+      <textarea id="text" name="text" rows="20" cols="50"></textarea>
+    </div>
+    <div class="button">
+      <button type="button" onclick="Translate()">Translate</button>
+    </div>
+  </div>
+  
+
+  <div class="result_container">
+    <label for="result">Translated Text:</label>
+    <textarea id="result" name="result" rows="20" cols="50"></textarea>
+  </div>
+  
+  
+
+  
+</body>
+</html>

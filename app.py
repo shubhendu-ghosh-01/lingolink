@@ -20,8 +20,11 @@ def home():
 tokenizer = AutoTokenizer.from_pretrained("facebook/nllb-200-distilled-600M")
 
 model = AutoModelForSeq2SeqLM.from_pretrained("facebook/nllb-200-distilled-600M")
-
-def translate(tgt_lang, src_lang, text):
+@app.route('/translate')
+def translate():
+    src_lang = request.args.get('src_lang')
+    tgt_lang = request.args.get('tgt_lang')
+    text = request.args.get('text')
     translator = pipeline(
         "translation",
         model=model,
@@ -29,10 +32,10 @@ def translate(tgt_lang, src_lang, text):
         src_lang=src_lang,
         tgt_lang=tgt_lang,
     )
-
+    
     output = translator(text, max_length=400)
-    output = output[0]["translation_text"]
-    return output
+    result = output[0]["translation_text"]
+    return result
 
 if __name__ == '__main__':
     app.run(debug=True)
