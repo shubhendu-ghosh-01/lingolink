@@ -1,20 +1,16 @@
 from flask import Flask, render_template, request
 import requests
+import os
 from transformers import AutoTokenizer, AutoModelForSeq2SeqLM
 from transformers import pipeline
 
 app = Flask(__name__)
+env_config = os.getenv("PROD_APP_SETTINGS", "config.DevelopmentConfig")
+app.config.from_object(env_config)
 
 @app.route('/', methods=['GET', 'POST'])
 def home():
-    if request.method == 'POST':
-        src_lang = request.form['src_lang']
-        tgt_lang = request.form['tgt_lang']
-        text = request.form['text']
-        translation = translate(src_lang, tgt_lang, text)
-        return render_template('index.html', translation=translation)
-    else:
-        return render_template('index.html')
+    return render_template('index.html')
     
 
 tokenizer = AutoTokenizer.from_pretrained("facebook/nllb-200-distilled-600M")
